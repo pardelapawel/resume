@@ -1,0 +1,104 @@
+\documentclass[a4paper,10pt]{article}
+%turn on polish characters
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+
+%A Few Useful Packages
+\usepackage{marvosym}
+\usepackage{libertine} %for loading fonts
+\usepackage{xunicode,xltxtra,url,parskip} %other packages for formatting
+\RequirePackage{color,graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[big]{layaureo} %better formatting of the A4 page
+% an alternative to Layaureo can be ** \usepackage{fullpage} **
+\usepackage{supertabular} %for Grades
+\usepackage{titlesec}%custom \section
+\usepackage{datatool} %to use with my custom config file to fill in this template
+\DTLsetseparator{ = } %setting a separator for a datatool
+
+%Setup hyperref package, and colours for links
+\usepackage{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+%Tweak a bit the top margin
+%\addtolength{\voffset}{-1.3cm}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+\DTLloaddb[noheader, keys={thekey,thevalue}]{config}{config.dat}
+\newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
+
+
+\pagestyle{empty} % non-numbered pages
+
+\font\fb=''[cmr10]'' %for use with \LaTeX command
+
+%--------------------TITLE-------------
+\par{
+    \centering
+    {\Huge \getFromMyConfig{firstName} \textsc{\getFromMyConfig{lastName}}}\\
+
+    \begin{tabular}{rl}
+        heremyphone & \href{mailto:mail@mail}{mail@mail}
+    \end{tabular}
+    \bigskip
+    \par
+}
+
+%--------------------SECTIONS-----------------------------------
+
+%Section: Work Experience at the top
+\section{Work Experience}
+\begin{tabular}{r|p{11cm}}
+
+    \emph{Current}
+        & Dispatcher \textsc{Company} Korea\\
+    \textsc{date}
+        & \emph{dev} \\
+        & \footnotesize{Some description}\\
+
+    \multicolumn{2}{c}{}\\ % newline
+
+    \textsc{date}
+        & \emph{jr dev} \\
+        & \emph{another title?} \\
+        & \footnotesize{some description} \\
+
+\end{tabular}
+
+%Section: Education
+\section{Education}
+\begin{tabular}{rl}
+ \textsc{month} year
+    & Master of Computer Science , \textbf{UAM}, Poznań\\
+    & ECSTscore \small\emph{summa cum laude} \\
+    & Thesis: ``Thesis title'' | \small Advisor: Prof. \getFromMyConfig{profFirstName} \textsc{\getFromMyConfig{profLastName}}\\
+\textsc{month} year& Bachelor \\
+    & ECTS , \normalsize\textbf{UAM}, Poznań\\
+    & Title: ``Title thing here'' | \small Advisor: Advisor \textsc{Name}\\
+    & \normalsize \textsc{score}: somesconre\\
+    &\\
+\textsc{month} year
+    & Exchange at \textbf{Oulu}, Finland\\
+    & \textsc{ECTS}: points \\
+    &\\
+\end{tabular}
+
+
+\section{Languages}
+\begin{tabular}{rl}
+    Computer& \textsc{Ruby}, \textsc{Python}, \textsc{JavaScript (ES6)}, Perl, \textsc{Bash}, {\fb \LaTeX}\\
+    Natural & Polish(native), English(fluent), Finnish(low intermediate), German(pre-intermediate), Korean(elementary)\\
+\end{tabular}
+
+\section{Interests}
+Technology, Open-Source, Programming\\
+Machine Learining, Linguistics\\
+
+\end{document}
