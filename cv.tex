@@ -33,6 +33,7 @@
 \begin{document}
 \DTLloaddb[noheader, keys={thekey,thevalue}]{config}{config.dat}
 \newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
+\newcommand{\myemph}[1]{\textcolor{gray}{#1}}
 
 
 \pagestyle{empty} % non-numbered pages
