@@ -16,6 +16,7 @@
 \usepackage{titlesec}%custom \section
 \usepackage{datatool} %to use with my custom config file to fill in this template
 \DTLsetseparator{ = } %setting a separator for a datatool
+\usepackage[sharp]{easylist} %for easily nesting itemizable tings
 
 %Setup hyperref package, and colours for links
 \usepackage{hyperref}
@@ -31,10 +32,23 @@
 
 %--------------------BEGIN DOCUMENT----------------------
 \begin{document}
-\DTLloaddb[noheader, keys={thekey,thevalue}]{config}{config.dat}
-\newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
+%that's how I mark things as "an additional info"
 \newcommand{\myemph}[1]{\textcolor{gray}{#1}}
 
+%load my config (for profile data)
+\DTLloaddb[noheader, keys={thekey,thevalue}]{config}{config.dat}
+\newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
+
+
+
+\newcommand{\workEasyItemizer}[1]{
+    \begin{minipage}[b]{0.85\textwidth}
+        \begin{easylist}[itemize]
+            \ListProperties(Space=0cm,Space*=0cm,FinalSpace=0cm)
+            \input{#1}
+        \end{easylist}
+    \end{minipage}
+}
 
 \pagestyle{empty} % non-numbered pages
 
