@@ -68,8 +68,8 @@
 
 %add one work entry section
 \newcommand{\workentry}[6]{
-    \textsc{#1}     & \emph{\textbf{#3}} \myemph{at #4}\\
-                    & \myemph{\scriptsize{#5}} \\
+    \textsc{#1}     & \emph{\textbf{#3}} \mydeemph{at #4}\\
+                    & \mydeemph{\scriptsize{#5}} \\
     \textsc{#2}     & \workEasyItemizer{#6}\\
 }
 
@@ -131,18 +131,18 @@
 \section{Education}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{\maintablewidth}}
 
-    \textsc{6/2016}         & Master of Computer Science \myemph{at \getFromMyConfig{universityName}}\\
+    \textsc{6/2016}         & Master of Computer Science \mydeemph{at \getFromMyConfig{universityName}}\\
                             & Thesis: ``\getFromMyConfig{masterTitle}''\\
-     \textsc{9/2012}        & \small Advisor: Prof. \getFromMyConfig{profFirstName} \textsc{\getFromMyConfig{profLastName}}\\
+     \textsc{9/2012}        & \footnotesize{Advisor: Prof. \getFromMyConfig{profFirstName} \textsc{\getFromMyConfig{profLastName}}}\\
 
     \multicolumn{2}{c}{}\\ % newline
 
-    \textsc{10/2012}        & Bachelor of Information and Internet technologies \myemph{at \getFromMyConfig{universityName}}\\
-    \textsc{9/2009}         & Final project: ``\getFromMyConfig{bachelorProject}'' \myemph{for \getFromMyConfig{bachelorCompany}}\\
+    \textsc{10/2012}        & Bachelor of Information and Internet technologies \mydeemph{at \getFromMyConfig{universityName}}\\
+    \textsc{9/2009}         & Final project: ``\getFromMyConfig{bachelorProject}'' \mydeemph{for \getFromMyConfig{bachelorCompany}}\\
 
     \multicolumn{2}{c}{}\\ % newline
 
-    \textsc{6/2011}         & Erasmus Programme \myemph{\textbf{Oulu University}, Finland}\\
+    \textsc{6/2011}         & Erasmus Programme \mydeemph{\textbf{Oulu University}, Finland}\\
     \textsc{8/2010}         & \\
 
 \end{tabular}
@@ -155,8 +155,8 @@
 
     %\multicolumn{2}{c}{}\\ % newline
 
-    Natural                 & Polish\myemph{(native)}, English\myemph{(fluent)}, Finnish\myemph{(low intermediate)},\\
-                            & German\myemph{(pre-intermediate)}, Korean\myemph{(elementary)}\\
+    Natural                 & Polish\mydeemph{(native)}, English\mydeemph{(fluent)}, Finnish\mydeemph{(low intermediate)},\\
+                            & German\mydeemph{(pre-intermediate)}, Korean\mydeemph{(elementary)}\\
 
 \end{tabular}
 
