@@ -23,36 +23,41 @@
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
 
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
+
+%CV Sections inspired by: http://stefano.italians.nl/archives/26
 \titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{2pt}{2pt}
 %Tweak a bit page size
 \geometry{top=2.5cm,bottom=2cm,margin=2.5cm}
-%\geometry{left=4cm,right=4cm,top=4cm}
 
-%--------------------BEGIN DOCUMENT----------------------
-\begin{document}
+
+%--------------- CUSTOM VARIABLES HERE ------------------
 %That's how I mark thins as bold and important. And title
 \newcommand{\myemph}[1]{\textbf{\emph{#1}}}
 %that's how I mark things as "an additional info"
 \newcommand{\mydeemph}[1]{\textcolor{gray}{#1}}
 
-%all additional files:
+%all additional files (where from to load the content)
 \newcommand\myconfigpath{../resume-data/config.dat}
 \newcommand\mysummarypath{../resume-data/summary.txt}
 \newcommand\mycurrentworkpath{../resume-data/work_current.list.txt}
 \newcommand\mytechleadworkpath{../resume-data/work_techlead.list.txt}
 \newcommand\myjuniorworkpath{../resume-data/work_junior.list.txt}
 
+%width of the main table (all sections)
 \newcommand\maintablewidth{12cm}
+%width of the left column of the aforementioned table (dates)
+\newcommand\leftColumnWidth{1.4cm}
+%------------ CUSTOM VARIABLES WERE HERE ----------------
 
+
+%---------- SOME ADDITIONAL HELPER MACROS ---------------
 %load my config (for profile data)
 \DTLloaddb[noheader, keys={thekey,thevalue}]{config}{\myconfigpath}
+%defines the access function to my data
 \newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
 
-\newcommand\leftColumnWidth{1.4cm}
-
+%creates a bullet list from a "content", @see easylist
 \newcommand{\workEasyItemizer}[1]{
     \begin{minipage}[b]{0.85\textwidth}
         \begin{easylist}[itemize]
@@ -63,7 +68,7 @@
 }
 
 
-%add one work entry section
+% template for "one work entry" section
 \newcommand{\workentry}[6]{
     \textsc{#1}     & \emph{\textbf{#3}} \mydeemph{at #4}\\
                     & \mydeemph{\scriptsize{#5}} \\
@@ -73,8 +78,9 @@
 
 \pagestyle{empty} % non-numbered pages
 
-\font\fb=''[cmr10]'' %for use with \LaTeX command
 
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
 %--------------------TITLE-------------
 \par{
     \centering
@@ -130,7 +136,7 @@
 
     \textsc{6/2016}         & Master of Computer Science \mydeemph{at \getFromMyConfig{universityName}}\\
                             & Thesis: ``\getFromMyConfig{masterTitle}''\\
-     \textsc{9/2012}        & \footnotesize{Advisor: Prof. \getFromMyConfig{profFirstName} \textsc{\getFromMyConfig{profLastName}}}\\
+    \textsc{9/2012}         & \footnotesize{Advisor: Prof. \getFromMyConfig{profFirstName} \textsc{\getFromMyConfig{profLastName}}}\\
 
     \multicolumn{2}{c}{}\\ % newline
 
@@ -148,7 +154,7 @@
 \section{Languages}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{\maintablewidth}}
 
-    Computer                & \textsc{Ruby}, \textsc{Python}, \textsc{Bash}, \textsc{JavaScript}, Perl, \textsc{C++}, {\fb \LaTeX}\\
+    Computer                & \textsc{Ruby}, \textsc{Python}, \textsc{Bash}, \textsc{JavaScript}, Perl, \textsc{C++} \\
 
     %\multicolumn{2}{c}{}\\ % newline
 
