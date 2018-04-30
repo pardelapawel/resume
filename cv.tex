@@ -39,8 +39,15 @@
 %that's how I mark things as "an additional info"
 \newcommand{\myemph}[1]{\textcolor{gray}{#1}}
 
+%all additional files:
+\newcommand\myconfigpath{../resume-data/config.dat}
+\newcommand\mysummarypath{../resume-data/summary.txt}
+\newcommand\mycurrentworkpath{../resume-data/work_current.list.txt}
+\newcommand\mytechleadworkpath{../resume-data/work_techlead.list.txt}
+\newcommand\myjuniorworkpath{../resume-data/work_junior.list.txt}
+
 %load my config (for profile data)
-\DTLloaddb[noheader, keys={thekey,thevalue}]{config}{config.dat}
+\DTLloaddb[noheader, keys={thekey,thevalue}]{config}{\myconfigpath}
 \newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
 
 \newcommand\leftColumnWidth{1.4cm}
@@ -70,7 +77,7 @@
     \par
 }
 
-\footnotesize{\input{summary.txt}}
+\footnotesize{\input{\mysummarypath}}
 %--------------------SECTIONS-----------------------------------
 
 %Section: Work Experience
@@ -79,20 +86,20 @@
 
     \textsc{Present}        & \emph{\textbf{\getFromMyConfig{currentJobPosition}}} \myemph{at \getFromMyConfig{currentJobPlace}}\\
                             & \footnotesize{\getFromMyConfig{dispatcherDescription}} \\
-    \textsc{3/2018}         & \workEasyItemizer{work_current.list.txt}\\
+    \textsc{3/2018}         & \workEasyItemizer{\mycurrentworkpath}\\
 
     \multicolumn{2}{c}{}\\ % newline
 
 
     \textsc{2/2018}         & \emph{\textbf{\getFromMyConfig{techLeadJobPosition}}} \myemph{at \getFromMyConfig{techLeadJobPlace}}\\
                             & \footnotesize{\getFromMyConfig{techleadDesccription}} \\
-    \textsc{3/2017}         & \workEasyItemizer{work_techlead.list.txt}\\
+    \textsc{3/2017}         & \workEasyItemizer{\mytechleadworkpath}\\
 
     \multicolumn{2}{c}{}\\ % newline
 
     \textsc{2/2017}         & \emph{\textbf{\getFromMyConfig{juniorJobPosition}}} \myemph{at \getFromMyConfig{juniorJobPlace}}\\
                             & \footnotesize{\getFromMyConfig{juniorDescription}} \\
-    \textsc{4/2014}         & \workEasyItemizer{work_junior.list.txt}\\
+    \textsc{4/2014}         & \workEasyItemizer{\myjuniorworkpath}\\
 
 \end{tabular}
 
