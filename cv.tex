@@ -61,6 +61,15 @@
     \end{minipage}
 }
 
+
+%add one work entry section
+\newcommand{\workentry}[6]{
+    \textsc{#1}     & \emph{\textbf{#3}} \myemph{at #4}\\
+                    & \myemph{\scriptsize{#5}} \\
+    \textsc{#2}     & \workEasyItemizer{#6}\\
+}
+
+
 \pagestyle{empty} % non-numbered pages
 
 \font\fb=''[cmr10]'' %for use with \LaTeX command
@@ -84,22 +93,33 @@
 \section{Work Experience}
 \begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{12cm}}
 
-    \textsc{Present}        & \emph{\textbf{\getFromMyConfig{currentJobPosition}}} \myemph{at \getFromMyConfig{currentJobPlace}}\\
-                            & \footnotesize{\getFromMyConfig{dispatcherDescription}} \\
-    \textsc{3/2018}         & \workEasyItemizer{\mycurrentworkpath}\\
+    \workentry
+        {Present}
+        {3/2018}
+        {\getFromMyConfig{currentJobPosition}}
+        {\getFromMyConfig{currentJobPlace}}
+        {\getFromMyConfig{dispatcherDescription}}
+        {\mycurrentworkpath}
 
     \multicolumn{2}{c}{}\\ % newline
 
-
-    \textsc{2/2018}         & \emph{\textbf{\getFromMyConfig{techLeadJobPosition}}} \myemph{at \getFromMyConfig{techLeadJobPlace}}\\
-                            & \footnotesize{\getFromMyConfig{techleadDesccription}} \\
-    \textsc{3/2017}         & \workEasyItemizer{\mytechleadworkpath}\\
+    \workentry
+        {2/2018}
+        {3/2017}
+        {\getFromMyConfig{techleadJobPosition}}
+        {\getFromMyConfig{techleadJobPlace}}
+        {\getFromMyConfig{techleadDescription}}
+        {\mytechleadworkpath}
 
     \multicolumn{2}{c}{}\\ % newline
 
-    \textsc{2/2017}         & \emph{\textbf{\getFromMyConfig{juniorJobPosition}}} \myemph{at \getFromMyConfig{juniorJobPlace}}\\
-                            & \footnotesize{\getFromMyConfig{juniorDescription}} \\
-    \textsc{4/2014}         & \workEasyItemizer{\myjuniorworkpath}\\
+    \workentry
+        {2/2017}
+        {4/2014}
+        {\getFromMyConfig{juniorJobPosition}}
+        {\getFromMyConfig{juniorJobPlace}}
+        {\getFromMyConfig{juniorDescription}}
+        {\myjuniorworkpath}
 
 \end{tabular}
 
