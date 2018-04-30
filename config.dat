@@ -1,0 +1,27 @@
+firstName = Name
+lastName = Lastname
+
+mymail = \href{mailto:me@me}{name.lastname@me.com}
+myphone = +12-345-678
+
+profFirstName = Proname
+profLastName = Withlastname
+
+currentJobPosition = WhatI DoNow
+currentJobPlace = \textbf{Some Company}
+techLeadJobPosition = My prev job
+techLeadJobPlace = \textbf{Some Company}
+juniorJobPosition = Junior Juniorus
+juniorJobPlace = Juniorus company
+
+masterTitle = The greatest story ever told
+universityName = \textbf{Not a made up Uni}
+bachelorProject = Not a very long project name
+bachelorCompany = Company
+
+dispatcherDescription = \blindtext
+
+
+techleadDesccription = \blindtext
+
+juniorDescription = \blindtext
