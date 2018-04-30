@@ -46,6 +46,8 @@
 \newcommand\mytechleadworkpath{../resume-data/work_techlead.list.txt}
 \newcommand\myjuniorworkpath{../resume-data/work_junior.list.txt}
 
+\newcommand\maintablewidth{12cm}
+
 %load my config (for profile data)
 \DTLloaddb[noheader, keys={thekey,thevalue}]{config}{\myconfigpath}
 \newcommand{\getFromMyConfig}[1]{\DTLfetch{config}{thekey}{#1}{thevalue}}
@@ -91,7 +93,7 @@
 
 %Section: Work Experience
 \section{Work Experience}
-\begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{12cm}}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{\maintablewidth}}
 
     \workentry
         {Present}
@@ -125,7 +127,7 @@
 
 %Section: Education
 \section{Education}
-\begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{12cm}}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{\maintablewidth}}
 
     \textsc{6/2016}         & Master of Computer Science \myemph{at \getFromMyConfig{universityName}}\\
                             & Thesis: ``\getFromMyConfig{masterTitle}''\\
@@ -145,7 +147,7 @@
 
 %Section: Languages
 \section{Languages}
-\begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{12cm}}
+\begin{tabular}{>{\raggedleft\arraybackslash}p{\leftColumnWidth}|p{\maintablewidth}}
 
     Computer                & \textsc{Ruby}, \textsc{Python}, \textsc{Bash}, \textsc{JavaScript}, Perl, \textsc{C++}, {\fb \LaTeX}\\
 
